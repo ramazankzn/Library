@@ -1,33 +1,33 @@
 package springcourse.util;
 
 
-import springcourse.dao.PersonDAO;
-import springcourse.models.Person;
+import springcourse.dao.HumanDAO;
+import springcourse.models.Human;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 @Component
-public class PersonValidator implements Validator {
+public class HumanValidator implements Validator {
 
-    private final PersonDAO personDAO;
+    private final HumanDAO personDAO;
 
     @Autowired
-    public PersonValidator(PersonDAO personDAO) {
-        this.personDAO = personDAO;
+    public HumanValidator(HumanDAO humanDAO) {
+        this.personDAO = humanDAO;
     }
 
     @Override
     public boolean supports(Class<?> clazz) {
-        return Person.class.equals(clazz);
+        return Human.class.equals(clazz);
     }
 
     @Override
     public void validate(Object target, Errors errors) {
-        Person person = (Person) target;
-        if (personDAO.show(person.getEmail()).isPresent()) {
-            errors.rejectValue("email", "", "This email is already taken");
-        }
+        Human person = (Human) target;
+//        if (personDAO.show(person.getYear()).isPresent()) {
+//            errors.rejectValue("email", "", "This email is already taken");
+//        }
     }
 }
