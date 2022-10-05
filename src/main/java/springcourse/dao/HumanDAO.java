@@ -43,7 +43,11 @@ public class HumanDAO {
 
     public void delete(int id) {
         jdbcTemplate.update("DELETE FROM Humans WHERE id = ?", id);
-
     }
+
+    public void getBooks(Human human) {
+        jdbcTemplate.query("SELECT Books.* FROM Books JOIN Humans ON Books.owner_id = humans.human_id WHERE humans.human_id = ?", new Object[]{human.getHuman_id()}, new HumanMapper());
+    }
+
 
 }

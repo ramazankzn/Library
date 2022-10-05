@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Изменение человека</title>
+    <title th:text="${human.getName()}"></title>
 </head>
 <body>
 <p th:text="${human.getName() + ', Год рождения: ' + human.getYear() + ';'}">VALUE</p>
@@ -10,11 +10,9 @@
 <a href="/humans">Вернуться к списку людей</a>
 <br/>
 <hr/>
-<a th:href="@{/humans/{id}/edit(id=${human.getHuman_id()})}">Редактировать данные</a><br/>
+<a th:href="@{/humans/{id}/edit(id=${human.getHuman_id()})}">Редактировать данные либо удалить</a><br/>
 <br/>
 <br/>
-<form th:method="DELETE" th:action="@{/humans/{id}(id=${human.getHuman_id()})}">
-    <input type="submit" value="Удалить">
-</form>
+<
 </body>
 </html>

@@ -7,11 +7,11 @@
 <body>
 
 <form th:method="POST" th:action="@{/humans}" th:object="${human}">
-    <label for="name">Enter name</label>
+    <label for="name">Введите ФИО</label>
     <input type="text" th:field="*{name}" id="name"/>
     <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
     <br/>
-    <label for="year">Enter year of birth:</label>
+    <label for="year">Введите год рождения:</label>
     <input type="text" th:field="*{year}" id="year"/>
     <div style="color: red" th:if="${#fields.hasErrors('year')}" th:errors="*{year}">Age Error</div>
     <br/>

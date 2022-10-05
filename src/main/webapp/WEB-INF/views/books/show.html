@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${book.getName()}"></title>
+</head>
+<body>
+<p th:text="${'Название: ' + book.getName() + ';'}">VALUE</p>
+<p th:text="${'Автор: ' + book.getAuthor() + ';'}">VALUE</p>
+<p th:text="${'Год издательства: ' + book.getYear_of_production() + ';'}">VALUE</p><br/>
+
+
+<div th:if="${book.getOwner_id()}">
+    <p th:text="${'Книга сейчас у: ' + book.getOwner_id()}">Книга выдана</p>
+</div>
+<div th:unless="${book.getOwner_id()}">
+    <h3>execute if the condition is false...</h3>
+</div>
+
+
+<a href="/books">Вернуться к списку людей</a>
+<br/>
+<hr/>
+<a th:href="@{/books/{id}/edit(id=${book.getBook_id()})}">Редактировать данные либо удалить</a><br/>
+<br/>
+<br/>
+
+</body>
+</html>

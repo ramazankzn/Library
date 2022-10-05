@@ -31,22 +31,12 @@ public class Human {
         this.year_of_birth = year;
     }
 
-    public List<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
 
     public Human() {}
 
     public Human(String name, int year, List<Book> books) {
         this.name = name;
         this.year_of_birth = year;
-        this.books = books;
     }
-
-    private List<Book> books;
 
 }
