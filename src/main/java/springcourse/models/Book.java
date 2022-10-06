@@ -1,10 +1,18 @@
 package springcourse.models;
 
+import javax.validation.constraints.*;
+
 public class Book {
     private int book_id;
+
     private Integer owner_id;
+    @NotEmpty(message = "Поле название не может быть пустым")
     private String name;
+    @NotEmpty(message = "Поле автор не может быть пустым")
     private String author;
+    @NotNull(message = "Поле год не может быть пустым")
+    @Min(value = 0, message = "Год не может быть отрицательным")
+    @Max(value = 2022, message = "Год не может быть больше 2022")
     private int year_of_production;
 
 

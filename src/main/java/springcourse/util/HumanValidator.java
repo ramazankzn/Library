@@ -11,11 +11,11 @@ import org.springframework.validation.Validator;
 @Component
 public class HumanValidator implements Validator {
 
-    private final HumanDAO personDAO;
+    private final HumanDAO humanDAO;
 
     @Autowired
     public HumanValidator(HumanDAO humanDAO) {
-        this.personDAO = humanDAO;
+        this.humanDAO = humanDAO;
     }
 
     @Override
@@ -25,9 +25,9 @@ public class HumanValidator implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-        Human person = (Human) target;
-//        if (personDAO.show(person.getYear()).isPresent()) {
-//            errors.rejectValue("email", "", "This email is already taken");
-//        }
+        Human human = (Human) target;
+        if (humanDAO.show(human.getName())!= null) {
+            errors.rejectValue("name", "", "Имя должно быть уникальным");
+        }
     }
 }

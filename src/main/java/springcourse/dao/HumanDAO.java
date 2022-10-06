@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import springcourse.models.Human;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class HumanDAO {
@@ -25,6 +26,11 @@ public class HumanDAO {
                 .stream().findAny().orElse(null);
     }
 
+    public Human show(String name) {
+        return jdbcTemplate.query("SELECT * FROM Humans WHERE name = ?", new Object[]{name}, new HumanMapper())
+                .stream().findAny().orElse(null);
+    }
+
     public void save(Human human) {
         jdbcTemplate.update("INSERT INTO Humans(name, year_of_birth) VALUES(?, ?)",
                 human.getName(), human.getYear_of_birth());
@@ -36,7 +42,11 @@ public class HumanDAO {
     }
 
     public void delete(int id) {
-        jdbcTemplate.update("DELETE FROM Humans WHERE id = ?", id);
+        jdbcTemplate.update("DELETE FROM Humans WHERE human_id = ?", id);
+    }
+    public Optional<Human> getHumanFullName(String name) {
+        return jdbcTemplate.query("Select Humans.name From Humans Where name = ?", new HumanMapper() , name)
+                .stream().findAny();
     }
 
     public void getBooks(int id) {
