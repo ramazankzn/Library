@@ -1,6 +1,6 @@
 package springcourse.models;
 
-import java.util.List;
+
 
 public class Human {
     private int human_id;
@@ -23,20 +23,20 @@ public class Human {
         this.name = name;
     }
 
-    public int getYear() {
+    public int getYear_of_birth() {
         return year_of_birth;
     }
 
-    public void setYear(int year) {
-        this.year_of_birth = year;
+    public void setYear_of_birth(int year_of_birth) {
+        this.year_of_birth = year_of_birth;
     }
 
 
     public Human() {}
 
-    public Human(String name, int year, List<Book> books) {
+    public Human(String name, int year_of_birth) {
         this.name = name;
-        this.year_of_birth = year;
+        this.year_of_birth = year_of_birth;
     }
 
 }

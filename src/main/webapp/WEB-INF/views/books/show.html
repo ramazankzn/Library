@@ -12,6 +12,11 @@
 
 <div th:if="${book.getOwner_id()}">
     <p th:text="${'Книга сейчас у: ' + book.getOwner_id()}">Книга выдана</p>
+
+    <form th:method="PATCH" th:action="@{/books/{id}/release(id=${book.getBook_id()})}">
+        <input type="submit" value="Освободить книгу"/>
+    </form>
+
 </div>
 <div th:unless="${book.getOwner_id()}">
     <h3>execute if the condition is false...</h3>

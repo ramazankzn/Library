@@ -12,7 +12,7 @@ public class HumanMapper implements RowMapper<Human> {
         Human human = new Human();
         human.setHuman_id(resultSet.getInt("human_id"));
         human.setName(resultSet.getString("name"));
-        human.setYear(resultSet.getInt("year_of_birth"));
+        human.setYear_of_birth(resultSet.getInt("year_of_birth"));
 
         return human;
     }

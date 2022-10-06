@@ -58,8 +58,8 @@ public class HumanController {
 
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("human") @Valid Human human, BindingResult bindingResult, @PathVariable("id") int id) {
-        humanValidator.validate(human, bindingResult);
-        if (bindingResult.hasErrors()) return "humans/edit";
+//        humanValidator.validate(human, bindingResult);
+//        if (bindingResult.hasErrors()) return "humans/edit";
         humanDAO.update(id, human);
         return "redirect:/humans";
     }
@@ -68,5 +68,11 @@ public class HumanController {
     public String delete(@PathVariable("id") int id) {
         humanDAO.delete(id);
         return "redirect:/humans";
+    }
+//Не рабочий
+    @GetMapping("{id}/getBooks")
+    public String getBooks(Model model, @PathVariable("id") int id) {
+        model.addAttribute("human", id);
+        return "humans/edit";
     }
 }

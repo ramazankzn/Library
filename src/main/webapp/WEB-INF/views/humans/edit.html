@@ -6,23 +6,23 @@
 </head>
 <body>
 
-<form th:method="PATCH" th:action="@{/humans/{id}(id=${human.getHuman_id()})}" th:object="${human}">
+<form th:method="PATCH" th:action="@{/humans/{id}(id=${human.getHuman_id()})}"
+      th:object="${human}">
     <label for="name">Введите ФИО</label>
     <input type="text" th:field="*{name}" id="name"/><br/>
     <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
 
 
     <label for="year_of_birth">Введите год рождения:</label>
-    <input type="text" th:field="*{year}" id="year_of_birth"/><br/>
-    <div style="color: red" th:if="${#fields.hasErrors('year_of_birth')}" th:errors="*{year}">Year Error</div>
-
-    <br/>
-    <br/>
+    <input type="text" th:field="*{year_of_birth}" id="year_of_birth"/><br/>
+    <div style="color: red" th:if="${#fields.hasErrors('year_of_birth')}" th:errors="*{year_of_birth}">Year Error</div>
+<br>
+<br>
     <input type="submit" value="Сохранить">
 </form>
 <hr/>
 <form th:method="DELETE" th:action="@{/humans/{id}(id=${human.getHuman_id()})}">
-<input type="submit" value="Удалить">
+    <input type="submit" value="Удалить">
 </form>
 </body>
 </html>

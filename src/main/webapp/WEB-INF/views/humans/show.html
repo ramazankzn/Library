@@ -5,14 +5,14 @@
     <title th:text="${human.getName()}"></title>
 </head>
 <body>
-<p th:text="${human.getName() + ', Год рождения: ' + human.getYear() + ';'}">VALUE</p>
+<p th:text="${human.getName() + ', Год рождения: ' + human.getYear_of_birth() + ';'}">VALUE</p>
 
+<br/>
+<br/>
 <a href="/humans">Вернуться к списку людей</a>
 <br/>
 <hr/>
 <a th:href="@{/humans/{id}/edit(id=${human.getHuman_id()})}">Редактировать данные либо удалить</a><br/>
-<br/>
-<br/>
-<
+
 </body>
 </html>
