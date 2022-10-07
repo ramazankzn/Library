@@ -2,6 +2,7 @@ package springcourse.dao;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import springcourse.models.Book;
 import springcourse.models.Human;
 
 import java.util.List;
@@ -44,13 +45,13 @@ public class HumanDAO {
     public void delete(int id) {
         jdbcTemplate.update("DELETE FROM Humans WHERE human_id = ?", id);
     }
-    public Optional<Human> getHumanFullName(String name) {
-        return jdbcTemplate.query("Select Humans.name From Humans Where name = ?", new HumanMapper() , name)
-                .stream().findAny();
-    }
+//    public Optional<Human> getHumanFullName(String name) {
+//        return jdbcTemplate.query("Select Humans.name From Humans Where name = ?", new HumanMapper() , name)
+//                .stream().findAny().orElse(null);
+//    }
 
-    public void getBooks(int id) {
-        jdbcTemplate.query("SELECT Books.* FROM Books JOIN Humans ON Books.owner_id = humans.human_id WHERE humans.human_id = ?", new Object[]{id}, new HumanMapper());
+    public List<Book> getBooks(int id) {
+        return jdbcTemplate.query("SELECT Books.* FROM Books JOIN Humans ON Books.owner_id = humans.human_id WHERE humans.human_id = ?", new Object[]{id}, new BookMapper());
     }
 
 

@@ -13,8 +13,10 @@
     <br/>
     <label for="year_of_birth">Введите год рождения:</label>
     <input type="text" th:field="*{year_of_birth}" id="year_of_birth"/>
-    <div style="color: red" th:if="${#fields.hasErrors('year')}" th:errors="*{year_of_birth}">Age Error</div>
-    <input type="submit" value="Create!">
+    <div style="color: red" th:if="${#fields.hasErrors('year_of_birth')}" th:errors="*{year_of_birth}">Age Error</div>
+    <br/>
+    <br/>
+    <input type="submit" value="Создать">
 </form>
 
 </body>

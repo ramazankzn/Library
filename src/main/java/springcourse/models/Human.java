@@ -2,6 +2,8 @@ package springcourse.models;
 
 
 import javax.validation.constraints.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Human {
@@ -10,12 +12,13 @@ public class Human {
     @NotEmpty(message = "Поле имя не может быть пустым")
     @Size(min = 3, message = "Имя слишком короткое")
     @Size(max = 100, message = "Имя слишком длинное")
-    @Pattern(regexp = "[A-Z]\\w+ [A-Z]\\w+ [A-Z]\\w+}", message = "Имя должно быть в формате: Иванов Иван Иванович")
     private String name;
     @NotNull(message = "Поле год рождения не может быть пустым")
     @Min(value = 1900, message = "Некорректный год")
     @Max(value = 2022, message = "Некорректный год")
     private int year_of_birth;
+
+    private List<Book> books;
 
     public int getHuman_id() {
         return human_id;

@@ -34,6 +34,7 @@ public class HumanController {
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
         model.addAttribute("human", humanDAO.show(id));
+        model.addAttribute("books", humanDAO.getBooks(id));
         return "humans/show";
     }
 
@@ -72,7 +73,7 @@ public class HumanController {
 //Не рабочий
     @GetMapping("{id}/getBooks")
     public String getBooks(Model model, @PathVariable("id") int id) {
-        model.addAttribute("human", id);
-        return "humans/edit";
+        model.addAttribute("books", humanDAO.getBooks(id));
+        return "redirect:/humans/{id}/show";
     }
 }

@@ -7,8 +7,24 @@
 <body>
 <p th:text="${human.getName() + ', Год рождения: ' + human.getYear_of_birth() + ';'}">VALUE</p>
 
-<br/>
-<br/>
+<div th:if="${books.isEmpty()}">
+    <h3>У этого пользователя на данный момент нет выданных книг</h3>
+</div>
+
+<div th:unless="${books.isEmpty()}">
+
+    <h3>Взятые книги:</h3>
+    <p th:each="book : ${books}">
+        <a th:href="@{/books/{id}(id=${book.getBook_id()})}"
+           th:text="${book.getName() + ', ' + book.getAuthor() +', '+ book.getYear_of_production()}">books</a>
+
+    <form th:method="PATCH" th:action="@{/books/{id}/release(id=${book.getBook_id()})}">
+        <input type="submit" value="Освободить книгу"/>
+    </form>
+    </p>
+</div>
+
+<hr/>
 <a href="/humans">Вернуться к списку людей</a>
 <br/>
 <hr/>
