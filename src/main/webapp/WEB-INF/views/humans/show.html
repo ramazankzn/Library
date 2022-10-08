@@ -24,6 +24,19 @@
     </div>
 </div>
 
+<div>
+    <h3>Выдать книгу:</h3>
+    <form th:method="PATCH" th:action="@{/humans/{id}/assign(id=${human.getHuman_id()})}">
+        <label for="book">Выберите книгу:</label>
+        <select th:object="${bookWithoutOwner}" th:field="*{book_id}" id="book">
+            <option th:each="book : ${booksWithoutOwner}" th:value="${book.getBook_id()}"
+                    th:text="${book.getName}">
+            </option>
+        </select>
+        <input type="submit" value="Назанчить">
+    </form>
+</div>
+
 <hr/>
 <a href="/humans">Вернуться к списку людей</a>
 <br/>

@@ -9,12 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95e66295-c478-4455-a347-1725d1a37c2d" name="Changes" comment="Added validation">
+    <list default="true" id="95e66295-c478-4455-a347-1725d1a37c2d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/springcourse/controllers/BooksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/springcourse/controllers/BooksController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springcourse/controllers/HumanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/springcourse/controllers/HumanController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/springcourse/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/springcourse/dao/BookDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/springcourse/dao/HumanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/springcourse/dao/HumanDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/books/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/books/show.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/humans/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/humans/show.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -181,7 +180,7 @@
       <workItem from="1664802120950" duration="66793000" />
       <workItem from="1665226130253" duration="691000" />
       <workItem from="1665247475136" duration="416000" />
-      <workItem from="1665250157852" duration="8771000" />
+      <workItem from="1665250157852" duration="10394000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1664891481816</created>
@@ -211,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665065095990</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Release v1.&#10;Correct work of all pages">
+      <created>1665262073966</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665262073966</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +239,7 @@
     <MESSAGE value="All pages released" />
     <MESSAGE value="Fix humans/idt page&#10;Added release book method" />
     <MESSAGE value="Added validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added validation" />
+    <MESSAGE value="Release v1.&#10;Correct work of all pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Release v1.&#10;Correct work of all pages" />
   </component>
 </project>

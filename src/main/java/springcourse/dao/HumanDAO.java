@@ -50,13 +50,13 @@ public class HumanDAO {
     public void delete(int id) {
         jdbcTemplate.update("DELETE FROM Humans WHERE human_id = ?", id);
     }
-//    public Optional<Human> getHumanFullName(String name) {
-//        return jdbcTemplate.query("Select Humans.name From Humans Where name = ?", new HumanMapper() , name)
-//                .stream().findAny().orElse(null);
-//    }
 
     public List<Book> getBooks(int id) {
         return jdbcTemplate.query("SELECT Books.* FROM Books JOIN Humans ON Books.owner_id = humans.human_id WHERE humans.human_id = ?", new Object[]{id}, new BookMapper());
+    }
+
+    public void assign(int id, Book book) {
+        jdbcTemplate.update("UPDATE books SET owner_id = ? WHERE book_id = ?", id, book.getBook_id());
     }
 
 

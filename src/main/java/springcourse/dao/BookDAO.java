@@ -53,4 +53,8 @@ public class BookDAO {
         jdbcTemplate.update("UPDATE books SET owner_id = null WHERE book_id = ?",  book_id);
     }
 
+    public List<Book> booksWithoutOwner() {
+        return jdbcTemplate.query("SELECT * FROM BOOKS WHERE Owner_id is null", new BookMapper());
+    }
+
 }

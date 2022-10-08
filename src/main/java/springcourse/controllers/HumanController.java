@@ -6,7 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import springcourse.dao.BookDAO;
 import springcourse.dao.HumanDAO;
+import springcourse.models.Book;
 import springcourse.models.Human;
 import springcourse.util.HumanValidator;
 
@@ -17,11 +19,13 @@ import javax.validation.Valid;
 public class HumanController {
 
     private final HumanDAO humanDAO;
+    private final BookDAO bookDAO;
     private final HumanValidator humanValidator;
 
     @Autowired
-    public HumanController(HumanDAO humanDAO, HumanValidator humanValidator) {
+    public HumanController(HumanDAO humanDAO, BookDAO bookDAO, HumanValidator humanValidator) {
         this.humanDAO = humanDAO;
+        this.bookDAO = bookDAO;
         this.humanValidator = humanValidator;
     }
 
@@ -32,9 +36,10 @@ public class HumanController {
     }
 
     @GetMapping("/{id}")
-    public String show(@PathVariable("id") int id, Model model) {
+    public String show(@PathVariable("id") int id, Model model, @ModelAttribute("bookWithoutOwner")Book booksWithoutOwner) {
         model.addAttribute("human", humanDAO.show(id));
         model.addAttribute("books", humanDAO.getBooks(id));
+        model.addAttribute("booksWithoutOwner", bookDAO.booksWithoutOwner());
         return "humans/show";
     }
 
@@ -70,10 +75,18 @@ public class HumanController {
         humanDAO.delete(id);
         return "redirect:/humans";
     }
-//Не рабочий
+
     @GetMapping("{id}/getBooks")
     public String getBooks(Model model, @PathVariable("id") int id) {
         model.addAttribute("books", humanDAO.getBooks(id));
         return "redirect:/humans/{id}/show";
     }
+
+    @PatchMapping("/{id}/assign")
+    public String selectBook(@PathVariable("id") int id, @ModelAttribute("book") Book selectedBook) {
+        humanDAO.assign(id, selectedBook);
+        return "redirect:/humans/" + id;
+    }
+
+
 }
