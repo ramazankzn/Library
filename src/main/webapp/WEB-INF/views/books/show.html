@@ -11,8 +11,10 @@
 
 
 <div th:if="${book.getOwner_id()}">
-    <p th:text="${'Книга сейчас у: ' + book.getOwner_id()}">Книга выдана</p>
-
+    <h3> Книга сейчас у: </h3>
+    <a th:href="@{/humans/{id}(id=${owner.getHuman_id()})}"
+       th:text="${owner.getName()}">ownerName</a>
+    <br/>
     <form th:method="PATCH" th:action="@{/books/{id}/release(id=${book.getBook_id()})}">
         <input type="submit" value="Освободить книгу"/>
     </form>
@@ -20,11 +22,21 @@
 </div>
 <div th:unless="${book.getOwner_id()}">
     <h3>Эта книга никому не назначена. Кому назначить?</h3>
+    <form th:method="PATCH" th:action="@{/books/{id}/assign(id=${book.getBook_id()})}">
+        <label for="human">Выберите человека кому назначить:</label>
+        <select th:object="${human}" th:field="*{human_id}" id="human">
+            <option th:each="person : ${humans}" th:value="${person.getHuman_id()}"
+                    th:text="${person.getName}">
+            </option>
+        </select>
+        <input type="submit" value="Назанчить">
+    </form>
 
 </div>
+<br/>
+<br/>
 
-
-<a href="/books">Вернуться к списку людей</a>
+<a href="/books">Вернуться к списку книг</a>
 <br/>
 <hr/>
 <a th:href="@{/books/{id}/edit(id=${book.getBook_id()})}">Редактировать данные либо удалить</a><br/>

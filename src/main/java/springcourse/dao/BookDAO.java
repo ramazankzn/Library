@@ -1,12 +1,12 @@
 package springcourse.dao;
 
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import springcourse.models.Book;
 import springcourse.models.Human;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class BookDAO {
@@ -41,12 +41,12 @@ public class BookDAO {
         jdbcTemplate.update("DELETE FROM books WHERE book_id = ?", id);
     }
 
-    public void getOwner(Book book) {
-        jdbcTemplate.query("SELECT Humans.* FROM Books JOIN Humans ON Books.owner_id = Humans.human_id WHERE Books.book_id = ?",
-                new Object[]{book.getBook_id()}, new BookMapper()).stream().findAny();
+    public Optional<Human> getOwnerName(int book) {
+      return jdbcTemplate.query("SELECT Humans.* FROM Books JOIN Humans ON Books.owner_id = Humans.human_id WHERE Books.book_id = ?",
+                new Object[]{book}, new HumanMapper()).stream().findAny();
     }
-    public void assign(Human human, Book book) {
-        jdbcTemplate.update("UPDATE books SET owner_id = ? WHERE book_id = ?", human.getHuman_id(), book.getBook_id());
+    public void assign(int id, Human human) {
+        jdbcTemplate.update("UPDATE books SET owner_id = ? WHERE book_id = ?", human.getHuman_id(), id);
     }
 
     public void release(int book_id) {

@@ -21,6 +21,11 @@ public class HumanDAO {
         return jdbcTemplate.query("SELECT * FROM Humans", new HumanMapper());
     }
 
+    public List<Human> peopleNames() {
+
+        return jdbcTemplate.query("SELECT name FROM Humans", new HumanMapper());
+    }
+
     public Human show(int id) {
 
         return jdbcTemplate.query("SELECT * FROM Humans WHERE human_id=?", new Object[]{id}, new HumanMapper())
