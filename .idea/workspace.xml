@@ -10,10 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95e66295-c478-4455-a347-1725d1a37c2d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/springcourse/util/BookValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/springcourse/controllers/HumanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/springcourse/controllers/HumanController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springcourse/controllers/BooksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/springcourse/controllers/BooksController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/springcourse/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/springcourse/dao/BookDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/springcourse/dao/HumanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/springcourse/dao/HumanDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/humans/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/humans/show.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -41,6 +41,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2FcrGTUAUAqNdH8Xof8GFcBnFq8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -180,7 +183,7 @@
       <workItem from="1664802120950" duration="66793000" />
       <workItem from="1665226130253" duration="691000" />
       <workItem from="1665247475136" duration="416000" />
-      <workItem from="1665250157852" duration="10394000" />
+      <workItem from="1665250157852" duration="11787000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1664891481816</created>
@@ -217,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665262073966</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added books without owner in human page">
+      <created>1665263560797</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1665263560797</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,6 +250,7 @@
     <MESSAGE value="Fix humans/idt page&#10;Added release book method" />
     <MESSAGE value="Added validation" />
     <MESSAGE value="Release v1.&#10;Correct work of all pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Release v1.&#10;Correct work of all pages" />
+    <MESSAGE value="Added books without owner in human page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added books without owner in human page" />
   </component>
 </project>

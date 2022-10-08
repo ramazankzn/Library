@@ -27,6 +27,12 @@ public class BookDAO {
                 .stream().findAny().orElse(null);
     }
 
+    public Book show(String name) {
+
+        return jdbcTemplate.query("SELECT * FROM books WHERE name = ?", new Object[]{name}, new BookMapper())
+                .stream().findAny().orElse(null);
+    }
+
     public void save(Book book) {
         jdbcTemplate.update("INSERT INTO books(name, author, year_of_production) VALUES(?, ?, ?)",
                 book.getName(), book.getAuthor(), book.getYear_of_production());

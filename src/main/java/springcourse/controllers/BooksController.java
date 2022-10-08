@@ -8,6 +8,7 @@ import springcourse.dao.BookDAO;
 import springcourse.dao.HumanDAO;
 import springcourse.models.Book;
 import springcourse.models.Human;
+import springcourse.util.BookValidator;
 
 import javax.validation.Valid;
 import java.util.Optional;
@@ -17,6 +18,7 @@ import java.util.Optional;
 public class BooksController {
     private final BookDAO bookDAO;
     private final HumanDAO humanDAO;
+    private BookValidator bookValidator;
 
     public BooksController(BookDAO bookDAO, HumanDAO humanDAO) {
         this.bookDAO = bookDAO;
@@ -49,6 +51,7 @@ public class BooksController {
 
     @PostMapping()
     public String create(@ModelAttribute("book") @Valid Book book, BindingResult bindingResult) {
+       // bookValidator.validate(book, bindingResult);
         if (bindingResult.hasErrors()) return "books/new";
         bookDAO.save(book);
         return "redirect:/books";
